@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 
 	while (minparse::parse(&arg)) {
 		for (int i = 0; i < arg.argc; i++) {
-			// arg.argv[i] holds the current argument value
+			// arg.arg holds the current argument, and arg.argv[i] the value
 		}
 	}
 
