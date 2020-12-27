@@ -12,24 +12,24 @@ namespace minparse {
 	};
 
 	namespace {
-		int arg_cpy;
+		int index;
 
-		int argc_cpy;
-		char** argv_cpy;
+		int end_index;
+		char** args;
 	}
 
 	void init(int argc, char** argv) {
-		argc_cpy = argc - 1;
-		argv_cpy = argv;
+		end_index = argc - 1;
+		args = argv;
 
-		arg_cpy = 0;
+		index = 0;
 	}
 
 	inline argument parse() {
-		int arg_current = arg_cpy;
+		int current_arg = index;
 
 		while (true) {
-			if (arg_cpy == argc_cpy + 1) {
+			if (index == end_index + 1) {
 				return {
 					nullptr,
 					-1,
@@ -38,11 +38,11 @@ namespace minparse {
 			}
 
 			// Order could be a bit faster
-			if (arg_cpy++ == argc_cpy || argv_cpy[arg_cpy][0] == '-') {
+			if (index++ == end_index || args[index][0] == '-') {
 				return {
-					argv_cpy[arg_current] + 1,
-					arg_cpy - 1 - arg_current,
-					argv_cpy + arg_current + 1
+					args[current_arg] + 1,
+					index - 1 - current_arg,
+					args + current_arg + 1
 				};
 			}
 		}
