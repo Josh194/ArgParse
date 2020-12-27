@@ -16,13 +16,9 @@ int main() {
 
 	minparse::init(argc, argv);
 
-	while (true) {
-		minparse::argument arg = minparse::parse();
+	minparse::argument arg = {};
 
-		if (arg.argc == -1) {
-			break;
-		}
-
+	while (minparse::parse(&arg)) {
 		std::cout << arg.arg << " " << arg.argc << " ";
 
 		for (int i = 0; i < arg.argc; i++) {
