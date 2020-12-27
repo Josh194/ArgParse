@@ -7,7 +7,7 @@ Usage is extremely simple; just initialize minparse with `argc` and `argv` from 
 #include "minparse.h"
 
 int main(int argc, char** argv) {
-	minparse::init(argc, argv);
+	minparse::init(argc - 1, argv + 1); // Don't include name of executable
 
 	minparse::argument arg = {};
 
