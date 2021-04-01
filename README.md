@@ -1,4 +1,4 @@
-# argparse 1.0.0-prerelease
+# argparse 1.1.0-prerelease
 A barebones, header-only argument parsing library for C++.
 
 ---
