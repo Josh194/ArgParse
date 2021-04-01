@@ -37,6 +37,12 @@ namespace minparse {
 		end_index = argc;
 		args = argv;
 
+		if (argc <= 0) { // argv must contain some arguments
+			index = 0;
+
+			return;
+		}
+
 		if (argv[0][0] == '-') { // argv must start with an actual argument
 			index = 0;
 		} else {
